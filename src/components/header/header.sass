@@ -1,0 +1,37 @@
+.main-header
+  position: relative
+  
+  &::after
+    content: ''
+    top: -25px
+    right: 15px
+    position: absolute
+    background: center/cover no-repeat url('../../img/roup.png')
+    height: 100px
+    width: 40px
+    -webkit-animation: 1s linear 0s infinite alternate moveRoup
+    -moz-animation: 1s linear 0s infinite alternate moveRoup
+    -o-animation: 1s linear 0s infinite alternate moveRoup
+    animation: 1s linear 0s infinite alternate moveRoup
+
+
+@-webkit-keyframes moveRoup
+  0%
+    top: -25px
+  100%
+    top: -10px
+@-moz-keyframes moveRoup
+  0%
+    top: -25px
+  100%
+    top: -10px
+@-o-keyframes moveRoup
+  0%
+    top: -25px
+  100%
+    top: -10px
+@keyframes moveRoup
+  0%
+    top: -25px
+  100%
+    top: -10px
