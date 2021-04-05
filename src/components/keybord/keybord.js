@@ -9,7 +9,7 @@ const Keybord = ({onLetterClick}) => {
       {lettersRu.map( (letter, index) => {
         return <span key={index} className="letter" onClick={onLetterClick}>{letter}</span>
       })}
-      { <span className="backspace" key={lettersRu.length} onClick={onLetterClick}></span> }
+      { <span className="backspace letter" key={lettersRu.length} onClick={onLetterClick}></span> }
     </div>
   );
 }

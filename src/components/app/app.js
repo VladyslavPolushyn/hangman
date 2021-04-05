@@ -14,24 +14,27 @@ const App = () => {
   const game = {
     activePlayer: 'player1',
     activeInput: '',
+    word: '',
     player1: {
       name: '',
-      score: 0,
-      word: ''
+      score: 0
     },
     player2: {
       name: '',
-      score: 0,
-      word: ''
+      score: 0
     }
   }
 
   const setInput = (activeInput, context) => {
+    if(context === 'word') {
+      game.word = activeInput.value.toLowerCase().split('');
+      return;
+    }
     game[game.activePlayer][context] = activeInput.value.toLowerCase();
     activeInput.focus();
   }
 
-  const onLetterClick = (event) => {
+  const onLetterClick = event => {
 
     if (!game.activeInput) {
       event.preventDefault();

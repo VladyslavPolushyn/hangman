@@ -5,7 +5,7 @@ import Header from './../../components/header';
 import NameInputs from '../../components/name-inputs';
 import Keybord from '../../components/keybord/keybord';
 
-const FirstScreen = ( {setName, game, onLetterClick} ) => {
+const FirstScreen = ( {game, onLetterClick} ) => {
 
   const [namesAlert, setNamesAlert] = useState('');
 

@@ -9,7 +9,7 @@ const SetWord = ( {game, onLetterClick} ) => {
   const [wordAlert, setWordAlert] = useState('');
 
   const isWord = (event) => {
-    if ( game[game.activePlayer].word.trim() === "" || game[game.activePlayer].word.trim().length < 2 ){
+    if ( game.word.length < 2 ){
       event.preventDefault();
       setWordAlert('danger-red');
       return;
@@ -25,7 +25,8 @@ const SetWord = ( {game, onLetterClick} ) => {
         <h6 className={"word-header " + wordAlert}><span className="h5">{ game[game.activePlayer].name }</span>, напишите слово для соперника:</h6>
       </div>
       <div className="container">
-        <input 
+        <input
+          readOnly
           type="text"
           placeholder="слово"
           data-input-type="word"
