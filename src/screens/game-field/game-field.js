@@ -8,22 +8,41 @@ const GameField = ( { game } ) => {
     return <span className="letter-span mx-1" key={index}>_</span>
   });
 
-  // const [letters, setLetters] = useState(lettersArr);
+  const [letters, setLetters] = useState(lettersArr);
   const [currentImg, setCurrentImg] = useState(1);
 
   const onLetterClick = event => {
 
-    if ( !game.word.includes(event.target.innerText) ) {
+    if ( event.target.hasAttribute('data-clicked') ) {
+      return;
+    }
+    else if ( !game.word.includes(event.target.innerText) ) {
 
+      event.target.setAttribute('data-clicked', 'true');
       event.target.classList.add('wrong-letter');
-      setCurrentImg( prevState => {
-        // 8 - the numbers of game img
-        return currentImg < 8 ? currentImg + 1 : prevState
+
+      setCurrentImg( currentImg => {
+        return currentImg < 8 ? currentImg + 1 : currentImg // 8 - the number of game images
       });
-      
+
     }else {
+
+      event.target.setAttribute('data-clicked', 'true');
       event.target.classList.add('correct-letter');
-      
+
+      setLetters( prevState => {
+        const newState = [...prevState];
+
+        newState.forEach((item, index) => {
+          if (event.target.innerText === game.word[index]) {
+            newState[index] = <span className="letter-span mx-1" key={index}>{event.target.innerText}</span>
+          }
+          return;
+        });
+
+        return newState;
+      });
+
     }
 
   }
@@ -50,7 +69,7 @@ const GameField = ( { game } ) => {
         </div>
       </div>
       <div className="game-word">
-        <h4>{lettersArr}</h4>
+        <h4>{letters}</h4>
       </div>
       <Keybord onLetterClick={onLetterClick} />   
     </div>
