@@ -15,6 +15,7 @@ const App = () => {
     activePlayer: 'player1',
     activeInput: '',
     word: '',
+    uniqueLettersCount: '',
     player1: {
       name: '',
       score: 0
@@ -28,10 +29,17 @@ const App = () => {
   const setInput = (activeInput, context) => {
     if(context === 'word') {
       game.word = activeInput.value.toLowerCase().split('');
+      game.uniqueLettersCount = getUniqueLettersCount(game.word);
+      activeInput.focus();
       return;
     }
     game[game.activePlayer][context] = activeInput.value.toLowerCase();
     activeInput.focus();
+  }
+
+  const getUniqueLettersCount = arr => {
+    const newArr = arr.filter((item, index) => arr.indexOf(item) === index);
+    return newArr.length;
   }
 
   const onLetterClick = event => {
