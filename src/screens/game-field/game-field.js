@@ -80,10 +80,10 @@ const GameField = ( { game } ) => {
   return (
     <div className="container game-field p-0 text-center">
       <div className="game-info py-3 d-flex">
-        <div className="game-img mh-100 col-7">
+        <div className="game-img mh-100 col-6">
           <img src={"img/game" + currentImg + ".png"} className="img-fluid" alt="game" />
         </div>
-        <div className="game-score col-5">
+        <div className="game-score col-6">
           <div className={"player-info " + isActivePlayer('player1')}>
             <p>{ game.player1.name }</p>
             <p>счёт: { game.player1.score }</p>

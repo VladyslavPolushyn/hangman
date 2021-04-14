@@ -5,7 +5,8 @@ const NameInputs = ( {alertStyles, game} ) => {
   return(
     <div className="container name-inputs d-flex flex-column mt-4">
       <h5 className={"names-header text-center mb-4 " + alertStyles}>Введите имена</h5>
-      <input 
+      <input
+        maxLength="10"
         readOnly 
         type="text" 
         placeholder="Игрок 1"
@@ -21,7 +22,8 @@ const NameInputs = ( {alertStyles, game} ) => {
           e.target.classList.remove('focus');
         } }
       />
-      <input 
+      <input
+        maxLength="10"
         readOnly
         type="text"
         placeholder="Игрок 2"

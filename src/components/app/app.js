@@ -56,6 +56,11 @@ const App = () => {
       return;
     }
 
+    // maxlength of name input = 12
+    if (game.activeInput.dataset.inputType === 'name' && game.activeInput.value.length === 12) {
+      return;
+    }
+
     game.activeInput.value = game.activeInput.value + event.target.innerText;
     setInput(game.activeInput, game.activeInput.dataset.inputType);
 

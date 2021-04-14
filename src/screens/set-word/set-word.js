@@ -22,7 +22,7 @@ const SetWord = ( {game, onLetterClick} ) => {
     <div className="container set-word p-0 text-center">
       <Header />
       <div className="mt-5 mb-2">
-        <h6 className={"word-header " + wordAlert}><span className="h5">{ game[game.activePlayer].name }</span>, напишите слово для соперника:</h6>
+        <h6 className={"word-header px-2 " + wordAlert}><span className="h5">{ game[game.activePlayer].name }</span>, напишите слово для соперника:</h6>
       </div>
       <div className="container">
         <input
